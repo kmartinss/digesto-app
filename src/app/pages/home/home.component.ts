@@ -1,6 +1,6 @@
-import { DigestoService } from '../../services/digesto.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ProcessoService } from 'src/app/data/processo/processo.service';
 
 @Component({
   selector: 'app-home',
@@ -12,13 +12,16 @@ export class HomeComponent implements OnInit {
     cnj: new FormControl(),
   });
 
-  constructor(private _digestoService: DigestoService) {}
+  constructor(public processoService: ProcessoService) {}
 
   ngOnInit(): void {}
 
-  public buscar(cnj: string) {
-    this._digestoService.getProcessoByCNJ(cnj).subscribe(({ data }) => {
-      console.log(data);
-    });
+  public buscar() {
+    this.processoService
+      .getProcessoByCNJ(this.formCnj.controls['cnj'].value)
+      .subscribe(() => {
+        localStorage.getItem('processo');
+      });
+
   }
 }
