@@ -1,1 +1,9 @@
 <app-header></app-header>
+<div class="wrapper">
+  <form [formGroup]="formCnj" id="formulario">
+    <mat-form-field appearance="outline" class="col-sm-12">
+      <mat-label>Informe o CNJ desejado</mat-label>
+      <input matInput id="cnj" name="cnj" type="text" formControlName="cnj" />
+    </mat-form-field>
+  </form>
+</div>

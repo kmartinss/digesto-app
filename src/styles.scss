@@ -1,3 +1,6 @@
+$menuBreakPoint: 956px;
+
+
 html,
 body {
   height: 100%;
@@ -6,4 +9,41 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
   background: #620b15;
+}
+
+.wrapper {
+  padding: 0 80px;
+  text-align: center;
+
+  @media (max-width: $menuBreakPoint) {
+     padding: 0 20px;
+  }
+}
+
+.mat-input-element {
+  caret-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline {
+  color: #ffffff;
+}
+
+.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+  color: #ffffff !important;
+}
+
+.mat-form-field-label {
+  color: #ffffff;
+}
+
+.mat-form-field.mat-focused .mat-form-field-label {
+  color: #cccccc !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-wrapper {
+  width: 500px;
+  @media (max-width: $menuBreakPoint) {
+    width: 300px;
+ }
 }
