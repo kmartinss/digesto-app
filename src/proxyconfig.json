@@ -1,0 +1,11 @@
+{
+  "/api/*": {
+    "target": "https://op.digesto.com.br/api",
+    "logLevel": "debug",
+    "changeOrigin": true,
+    "secure": false,
+    "pathRewrite": {
+      "^/api": ""
+    }
+  }
+}

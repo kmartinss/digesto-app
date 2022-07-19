@@ -1,4 +1,4 @@
-import { DigestoService } from './../../service/digesto.service';
+import { DigestoService } from '../../services/digesto.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 

@@ -1,4 +1,4 @@
-import { environment } from './../../environments/environment';
+import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
@@ -10,16 +10,17 @@ export class DigestoService {
   constructor(private http: HttpClient) {}
 
   public getProcessoByCNJ(cnj: string): Observable<any> {
-    const url = `${environment.API}/${cnj}${environment.tipoNumero}`;
+    const url = `/api/tribproc/${cnj}${environment.tipoNumero}`;
+    const token = environment.apiToken;
+
     console.log(url);
 
     return this.http
       .get<any>(url, {
         headers: {
-          Authorization:
-            "Basic NWFmOGJhNGMtNDNlMy00MzYxLTllOWMtZjczNDU4YWI2YTViOg==",
-          },
+          Authorization: `Bearer ${token}`,
+        },
       })
-      .pipe(map((res) => res));
+      .pipe(map(({ res }) => console.log(res)));
   }
 }
