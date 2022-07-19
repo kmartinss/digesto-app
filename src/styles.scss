@@ -1,6 +1,5 @@
 $menuBreakPoint: 956px;
 
-
 html,
 body {
   height: 100%;
@@ -8,7 +7,13 @@ body {
 body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
-  background: #620b15;
+  background-color: #ffffff;
+  // background-image: linear-gradient(
+  //   80deg,
+  //   #ffffff 0%,
+  //   #ffffff 85%,
+  //   #620b15 100%
+  // );
 }
 
 .wrapper {
@@ -16,25 +21,25 @@ body {
   text-align: center;
 
   @media (max-width: $menuBreakPoint) {
-     padding: 0 20px;
+    padding: 0 20px;
   }
 }
 
 .mat-input-element {
-  caret-color: #ffffff !important;
-  color: #ffffff !important;
+  caret-color: #620b15 !important;
+  color: #620b15 !important;
 }
 
 .mat-form-field-appearance-outline .mat-form-field-outline {
-  color: #ffffff;
+  color: #620b15;
 }
 
 .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
-  color: #ffffff !important;
+  color: #620b15 !important;
 }
 
 .mat-form-field-label {
-  color: #ffffff;
+  color: #620b15;
 }
 
 .mat-form-field.mat-focused .mat-form-field-label {
@@ -45,5 +50,5 @@ body {
   width: 500px;
   @media (max-width: $menuBreakPoint) {
     width: 300px;
- }
+  }
 }
