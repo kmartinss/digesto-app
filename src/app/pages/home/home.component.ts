@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProcessoService } from 'src/app/data/processo/processo.service';
+// import {Dialog, DialogRef, DIALOG_DATA} from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
     cnj: new FormControl(),
   });
 
-  constructor(public processoService: ProcessoService) {}
+  constructor(public processoService: ProcessoService, public dialog: Dialog) {}
 
   ngOnInit(): void {
     this.buscar();
@@ -27,4 +28,17 @@ export class HomeComponent implements OnInit {
 
     console.log(this.processoService.processo);
   }
+
+//   openDialog(): void {
+//     const dialogRef = this.dialog.open<string>(CdkDialogOverviewExampleDialog, {
+//       width: '250px',
+//       data: {name: this.name, animal: this.animal},
+//     });
+
+//     dialogRef.closed.subscribe(result => {
+//       console.log('The dialog was closed');
+//       this.animal = result;
+//     });
+//   }
+// }
 }
