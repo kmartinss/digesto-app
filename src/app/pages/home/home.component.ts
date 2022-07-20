@@ -1,12 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProcessoService } from 'src/app/data/processo/processo.service';
-import {
-  MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ProcessoDetalhesComponent } from '../processo-detalhes/processo-detalhes.component';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-home',
@@ -17,9 +14,12 @@ export class HomeComponent implements OnInit {
   public indexTipo = 8;
   public indexNome = 2;
   public indexAdvogado = 9;
-  // public indexNome = 2;
-  // public indexNome = 2;
 
+  public indexMovData = 0;
+  public indexMovTipo = 1;
+  public indexMovDescricao = 2;
+
+  public exibirMovimentacoes: boolean = false;
 
   public formCnj: FormGroup = new FormGroup({
     cnj: new FormControl(),
@@ -27,7 +27,6 @@ export class HomeComponent implements OnInit {
 
   tabelaPartes: string[] = ['Tipo', 'Nome', 'Advogado', 'OAB'];
   tabelaMovimentacoes: string[] = ['Data', 'Tipo', 'Descricao'];
-
 
   constructor(
     public processoService: ProcessoService,
@@ -40,7 +39,7 @@ export class HomeComponent implements OnInit {
 
   public buscar() {
     this.processoService
-      .getProcessoByCNJ('0019600-40.2007.5.15.0124')
+      .getProcessoByCNJ(this.formCnj.controls['cnj'].value)
       .subscribe(() => {
         localStorage.getItem('processo');
       });
@@ -52,5 +51,10 @@ export class HomeComponent implements OnInit {
     this.dialog.open(ProcessoDetalhesComponent, {
       width: '800px',
     });
+  }
+
+  public exibir() {
+    this.exibirMovimentacoes = !this.exibirMovimentacoes;
+    console.log(this.exibirMovimentacoes);
   }
 }

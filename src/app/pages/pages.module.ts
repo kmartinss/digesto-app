@@ -11,7 +11,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProcessoDetalhesComponent } from './processo-detalhes/processo-detalhes.component';
 import {MatTableModule} from '@angular/material/table';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [HomeComponent, ProcessoDetalhesComponent],
   imports: [
@@ -25,7 +25,8 @@ import {MatTableModule} from '@angular/material/table';
     MatButtonModule,
     MatCardModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule
   ],
 })
 export class PagesModule {}
