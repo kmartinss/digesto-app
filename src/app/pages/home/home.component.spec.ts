@@ -22,10 +22,6 @@ describe('HomeComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  // describe('buscar()', () => {
-  //   it('should return a process', () => {
-  //     expect(component.buscar()).
-  //   });
-  // });
+  
 });
 

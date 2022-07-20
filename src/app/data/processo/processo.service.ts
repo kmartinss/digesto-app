@@ -7,13 +7,13 @@ import { map, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProcessoService {
-  public processo: any;
-  public isValid = false;
+  public apiUrl = `/api/tribproc`;
+
 
   constructor(private http: HttpClient) {}
 
   public getProcessoByCNJ(cnj: string): Observable<any> {
-    const url = `/api/tribproc/${cnj}${environment.tipoNumero}`;
+    const url = `${this.apiUrl}/${cnj}${environment.tipoNumero}`;
     const token = environment.apiToken;
 
     return this.http
@@ -24,13 +24,10 @@ export class ProcessoService {
       })
       .pipe(
         map((response) => {
-          if (response?.status_op) {
-            alert(response.status_op);
-            this.isValid = false;
-            return;
-          }
-          this.isValid = true;
-          this.processo = response;
+
+          return response;
+
+
         })
       );
   }

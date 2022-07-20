@@ -1,3 +1,4 @@
+import { HomeComponent } from './../home/home.component';
 import { ProcessoService } from 'src/app/data/processo/processo.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
@@ -10,10 +11,9 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class ProcessoDetalhesComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ProcessoDetalhesComponent>,
-    public processoService: ProcessoService
+    public processoService: HomeComponent
   ) {}
 
   ngOnInit(): void {
-    console.log(this.processoService.processo)
   }
 }

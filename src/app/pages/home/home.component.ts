@@ -11,6 +11,9 @@ import { MatPaginator } from '@angular/material/paginator';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public processo: any;
+  public isValid = false;
+
   public indexTipo = 8;
   public indexNome = 2;
   public indexAdvogado = 9;
@@ -20,7 +23,6 @@ export class HomeComponent implements OnInit {
   public indexMovDescricao = 2;
 
   public exibirMovimentacoes: boolean = false;
-
 
   public formCnj: FormGroup = new FormGroup({
     cnj: new FormControl(null, [Validators.required]),
@@ -35,18 +37,22 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.processoService.isValid)
   }
 
   public buscar() {
     this.processoService
       .getProcessoByCNJ(this.formCnj.controls['cnj'].value)
-      .subscribe(() => {
-        localStorage.getItem('processo');
+      .subscribe((response) => {
+        if (response?.status_op) {
+          alert(response.status_op);
+          this.isValid = false;
+          return;
+        }
+        this.isValid = true;
+        this.processo = response;
       });
 
-      console.log(this.processoService?.processo)
-
+    console.log(this.processo);
   }
 
   public openDialog(): void {
