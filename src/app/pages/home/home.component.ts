@@ -3,7 +3,6 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProcessoService } from 'src/app/data/processo/processo.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProcessoDetalhesComponent } from '../processo-detalhes/processo-detalhes.component';
-import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +12,7 @@ import { MatPaginator } from '@angular/material/paginator';
 export class HomeComponent implements OnInit {
   public processo: any;
   public isValid = false;
+  public messageError: string = '';
 
 
   // Números de index de PARTES
@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   public indexAdvogado = 9;
   public indexNomeAdvogado = 1;
   public indexOab = 2;
-
 
   public exibirMovimentacoes: boolean = false;
 
@@ -52,13 +51,13 @@ export class HomeComponent implements OnInit {
       .getProcessoByCNJ(this.formCnj.controls['cnj'].value)
       .subscribe((response) => {
         if (response?.status_op) {
-          alert(response.status_op);
           this.isValid = false;
+          this.messageError = response?.status_op;
           return;
         }
         this.isValid = true;
         this.processo = response;
-      });
+      })
   }
 
   public openDialog(): void {

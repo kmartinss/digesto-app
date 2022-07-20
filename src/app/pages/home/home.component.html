@@ -150,4 +150,8 @@
       </table>
     </div>
   </div>
+
+  <div *ngIf="!isValid">
+    <h2 class="msg-error">{{ messageError }}</h2>
+  </div>
 </div>
