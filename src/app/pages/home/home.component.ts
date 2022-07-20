@@ -14,14 +14,17 @@ export class HomeComponent implements OnInit {
 
   constructor(public processoService: ProcessoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.buscar();
+  }
 
   public buscar() {
     this.processoService
-      .getProcessoByCNJ(this.formCnj.controls['cnj'].value)
+      .getProcessoByCNJ('0019600-40.2007.5.15.0124')
       .subscribe(() => {
         localStorage.getItem('processo');
       });
 
+    console.log(this.processoService.processo);
   }
 }

@@ -1,3 +1,61 @@
+$menuBreakPoint: 956px;
+
 form {
   margin-top: 50px;
+}
+
+button {
+  height: 50px;
+  font-size: 1.2rem;
+}
+
+.card {
+  margin-top: 60px;
+  text-align: -webkit-center;
+  mat-card {
+    padding: 30px;
+    width: 500px;
+    text-align: left;
+
+    @media (max-width: $menuBreakPoint) {
+      width: 300px;
+    }
+
+    mat-card-header {
+      h5 {
+        margin-top: -20px;
+        float: left;
+        margin-left: -30px;
+        font-weight: 400;
+        margin-bottom: 20px;
+      }
+
+      h4 {
+        border: 1px solid grey;
+        padding: 5px;
+        margin-left: -49%;
+
+        @media (max-width: $menuBreakPoint) {
+          margin-left: -81%;
+        }
+      }
+    }
+
+    mat-card-title {
+      font-weight: 600;
+    }
+
+    mat-card-content {
+      font-size: 1rem;
+    }
+
+    mat-card-actions {
+      text-align: left;
+    }
+
+    mat-card-footer {
+      text-align: center;
+      font-size: 0.8rem;
+    }
+  }
 }

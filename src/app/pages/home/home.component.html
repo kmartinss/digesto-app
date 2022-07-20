@@ -1,14 +1,56 @@
 <app-header></app-header>
 <div class="wrapper">
-
-  <div class="teste col-sm-12">
+  <div class="col-sm-12">
     <form [formGroup]="formCnj" id="formulario" class="col-sm-12">
       <mat-form-field appearance="outline" class="col-sm-12">
         <mat-label>Informe o CNJ desejado</mat-label>
         <input matInput id="cnj" name="cnj" type="text" formControlName="cnj" />
       </mat-form-field>
 
-      <button type="button" (click)="buscar()">Enviar</button>
+      <div class="col-sm-12">
+        <button
+          mat-raised-button
+          color="primary"
+          type="button"
+          (click)="buscar()"
+          (keyup.enter)="buscar()"
+        >
+          Buscar
+        </button>
+      </div>
     </form>
+  </div>
+
+  <div class="col-sm-12 card" *ngIf="processoService.processo">
+    <mat-card>
+      <mat-card-header
+        ><h5>Processo Nº{{ processoService?.processo?.numero }}</h5>
+
+        <h4>{{ processoService?.processo?.situacao }}</h4>
+      </mat-card-header>
+      <mat-card-title>
+        {{ processoService?.processo?.area }} |
+        {{ processoService?.processo?.instancia }}° instância
+      </mat-card-title>
+      <mat-card-content>
+        {{ processoService?.processo?.tribunal }} |
+        {{ processoService?.processo?.foro_cnj }} -
+        {{ processoService?.processo?.uf }}
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button
+          mat-stroked-button
+          color="primary"
+          type="button"
+        >
+          Detalhes
+        </button>
+      </mat-card-actions>
+
+      <mat-card-footer>
+        Atualizado em {{ processoService?.processo?.alteradoEm | date: "dd/MM/yyyy hh:mm" }}
+      </mat-card-footer>
+    </mat-card>
   </div>
 </div>
