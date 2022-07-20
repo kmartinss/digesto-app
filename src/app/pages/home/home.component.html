@@ -10,9 +10,11 @@
           name="cnj"
           type="text"
           formControlName="cnj"
-          placeholder="0000000-00.0000.0.00.0000"
+          placeholder="xxxxxxx-xx.xxxx.x.xx.xxxx"
           mask="0000000-00.0000.0.00.0000"
         />
+
+        <mat-error *ngIf="!formCnj.valid">Por favor, digite um cnj válido.</mat-error>
       </mat-form-field>
 
       <div class="col-sm-12">
@@ -22,6 +24,7 @@
           type="button"
           (click)="buscar()"
           (keyup.enter)="buscar()"
+          [disabled]="!formCnj.valid"
         >
           Buscar
         </button>

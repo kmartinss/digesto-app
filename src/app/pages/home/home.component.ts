@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ProcessoService } from 'src/app/data/processo/processo.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ProcessoDetalhesComponent } from '../processo-detalhes/processo-detalhes.component';
@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   public exibirMovimentacoes: boolean = false;
 
   public formCnj: FormGroup = new FormGroup({
-    cnj: new FormControl(),
+    cnj: new FormControl(null, [Validators.required]),
   });
 
   tabelaPartes: string[] = ['Tipo', 'Nome', 'Advogado', 'OAB'];

@@ -1,3 +1,4 @@
+import { NgxMaskModule } from 'ngx-mask';
 import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -29,7 +30,8 @@ import {MatIconModule} from '@angular/material/icon';
     MatDialogModule,
     MatTableModule,
     MatPaginatorModule,
-    MatIconModule
+    MatIconModule,
+    NgxMaskModule.forRoot(),
   ],
 })
 export class PagesModule {}
