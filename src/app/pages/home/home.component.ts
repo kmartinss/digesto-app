@@ -14,14 +14,18 @@ export class HomeComponent implements OnInit {
   public processo: any;
   public isValid = false;
 
+
+  // Números de index de PARTES
   public indexTipo = 8;
   public indexNome = 2;
-  public indexAdvogado = 9;
 
+  // Números de index de MOVIMENTAÇÕES
   public indexMovData = 0;
   public indexMovTipo = 1;
   public indexMovDescricao = 2;
 
+// Números de index de ADVOGADO
+  public indexAdvogado = 9;
   public indexNomeAdvogado = 1;
   public indexOab = 2;
 
