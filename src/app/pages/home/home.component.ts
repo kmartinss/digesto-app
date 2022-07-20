@@ -43,8 +43,6 @@ export class HomeComponent implements OnInit {
       .subscribe(() => {
         localStorage.getItem('processo');
       });
-
-    console.log(this.processoService.processo);
   }
 
   public openDialog(): void {
@@ -55,6 +53,5 @@ export class HomeComponent implements OnInit {
 
   public exibir() {
     this.exibirMovimentacoes = !this.exibirMovimentacoes;
-    console.log(this.exibirMovimentacoes);
   }
 }

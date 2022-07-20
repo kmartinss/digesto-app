@@ -16,7 +16,7 @@ body {
 }
 
 .wrapper {
-  padding: 0 80px;
+  padding: 0 80px 100px;
   text-align: center;
 
   @media (max-width: $menuBreakPoint) {
@@ -57,4 +57,24 @@ body {
 .mat-fab.mat-primary,
 .mat-mini-fab.mat-primary {
   background-color: #620b15;
+}
+
+th.mat-header-cell {
+  text-align: center !important;
+  background: #620b15;
+  color: #ffffffff;
+  font-size: 0.9rem;
+}
+
+th.mat-header-cell, td.mat-cell, td.mat-footer-cell {
+  padding: 0;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  width: 500px;
+  height: 40px;
+  font-size: 1rem;
+}
+
+tr.mat-row, tr.mat-footer-row {
+  height: 80px !important;
 }

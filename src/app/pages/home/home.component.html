@@ -61,16 +61,10 @@
       </mat-card>
     </div>
 
-    <div *ngFor="let parte of processoService?.processo?.partes">
-      <div *ngFor="let advogado of parte[9]">
-        {{ advogado[1] }}
-      </div>
-      <hr />
-    </div>
 
-    <div class="col-sm-12 tabela">
-      <h1>Partes</h1>
+    <h1>Partes</h1>
       <hr />
+    <div class="col-sm-12 tabela-partes">
       <table
         mat-table
         [dataSource]="processoService?.processo?.partes"
@@ -86,20 +80,22 @@
           <td mat-cell *matCellDef="let parte">{{ parte[indexNome] }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="Advogado" *matCellDef="let parte">
-          <div *ngFor="let advogado of parte[9]">
-            <th mat-header-cell *matHeaderCellDef>Advogado(s)</th>
-            <td
-              mat-cell
-            >
-              {{ advogado[1] }}
-            </td>
-          </div>
+        <ng-container matColumnDef="Advogado">
+          <th mat-header-cell *matHeaderCellDef>Advogado(s)</th>
+          <td mat-cell *matCellDef="let parte">
+            <div *ngFor="let advogado of parte[9]">
+              {{ advogado[1] || "-" }}<br />
+            </div>
+          </td>
         </ng-container>
 
         <ng-container matColumnDef="OAB">
           <th mat-header-cell *matHeaderCellDef>OAB</th>
-          <td mat-cell *matCellDef="let parte"></td>
+          <td mat-cell *matCellDef="let parte">
+            <div *ngFor="let advogado of parte[9]">
+              {{ advogado[2] || "-" }}<br />
+            </div>
+          </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="tabelaPartes"></tr>
@@ -107,9 +103,15 @@
       </table>
     </div>
 
-    <div class="col-sm-12">
-      <button mat-stroked-button color="primary" type="button" (click)="exibir()">
-        {{ exibirMovimentacoes ? "Ocultar" : "Exibir" }} movimentações do processo
+    <div class="col-sm-12 btn-mov" >
+      <button
+        mat-stroked-button
+        color="primary"
+        type="button"
+        (click)="exibir()"
+      >
+        {{ exibirMovimentacoes ? "Ocultar" : "Exibir" }} movimentações do
+        processo 	<mat-icon>{{ exibirMovimentacoes ? "expand_less" : "expand_more" }}</mat-icon>
       </button>
     </div>
 
