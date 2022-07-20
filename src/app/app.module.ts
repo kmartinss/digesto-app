@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgxMaskModule } from 'ngx-mask';
+// import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,7 +16,7 @@ import { NgxMaskModule } from 'ngx-mask';
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    NgxMaskModule.forRoot(),
+    // NgxMaskModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
