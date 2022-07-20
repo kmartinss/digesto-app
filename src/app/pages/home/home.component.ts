@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProcessoService } from 'src/app/data/processo/processo.service';
-// import {Dialog, DialogRef, DIALOG_DATA} from '@angular/cdk/dialog';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ProcessoDetalhesComponent } from '../processo-detalhes/processo-detalhes.component';
 
 @Component({
   selector: 'app-home',
@@ -13,7 +14,7 @@ export class HomeComponent implements OnInit {
     cnj: new FormControl(),
   });
 
-  constructor(public processoService: ProcessoService, public dialog: Dialog) {}
+  constructor(public processoService: ProcessoService, public dialog: MatDialog) {}
 
   ngOnInit(): void {
     this.buscar();
@@ -29,16 +30,14 @@ export class HomeComponent implements OnInit {
     console.log(this.processoService.processo);
   }
 
-//   openDialog(): void {
-//     const dialogRef = this.dialog.open<string>(CdkDialogOverviewExampleDialog, {
-//       width: '250px',
-//       data: {name: this.name, animal: this.animal},
-//     });
+  openDialog(): void {
+    const dialogRef = this.dialog.open(ProcessoDetalhesComponent, {
+      width: '800px',
+    });
 
-//     dialogRef.closed.subscribe(result => {
-//       console.log('The dialog was closed');
-//       this.animal = result;
-//     });
-//   }
-// }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
 }
+
