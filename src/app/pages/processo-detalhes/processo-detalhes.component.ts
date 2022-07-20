@@ -11,7 +11,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 export class ProcessoDetalhesComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<ProcessoDetalhesComponent>,
-    public processoService: HomeComponent
+    public processoService: ProcessoService
   ) {}
 
   ngOnInit(): void {

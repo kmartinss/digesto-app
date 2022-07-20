@@ -8,6 +8,7 @@ import { map, Observable } from 'rxjs';
 })
 export class ProcessoService {
   public apiUrl = `/api/tribproc`;
+  public processo: any;
 
 
   constructor(private http: HttpClient) {}
@@ -24,10 +25,8 @@ export class ProcessoService {
       })
       .pipe(
         map((response) => {
-
+          this.processo = response;
           return response;
-
-
         })
       );
   }

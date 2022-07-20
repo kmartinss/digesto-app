@@ -88,7 +88,7 @@
           <th mat-header-cell *matHeaderCellDef>Advogado(s)</th>
           <td mat-cell *matCellDef="let parte">
             <div *ngFor="let advogado of parte[9]">
-              {{ advogado[1] || "-" }}<br />
+              {{ advogado[indexNomeAdvogado] || "-" }}<br />
             </div>
           </td>
         </ng-container>
@@ -96,8 +96,8 @@
         <ng-container matColumnDef="OAB">
           <th mat-header-cell *matHeaderCellDef>OAB</th>
           <td mat-cell *matCellDef="let parte">
-            <div *ngFor="let advogado of parte[9]">
-              {{ advogado[2] || "-" }}<br />
+            <div *ngFor="let advogado of parte[indexAdvogado]">
+              {{ advogado[indexOab] || "-" }}<br />
             </div>
           </td>
         </ng-container>

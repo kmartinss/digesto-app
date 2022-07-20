@@ -33,5 +33,6 @@ import {MatIconModule} from '@angular/material/icon';
     MatIconModule,
     NgxMaskModule.forRoot(),
   ],
+  
 })
 export class PagesModule {}

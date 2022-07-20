@@ -22,6 +22,10 @@ export class HomeComponent implements OnInit {
   public indexMovTipo = 1;
   public indexMovDescricao = 2;
 
+  public indexNomeAdvogado = 1;
+  public indexOab = 2;
+
+
   public exibirMovimentacoes: boolean = false;
 
   public formCnj: FormGroup = new FormGroup({
@@ -51,8 +55,6 @@ export class HomeComponent implements OnInit {
         this.isValid = true;
         this.processo = response;
       });
-
-    console.log(this.processo);
   }
 
   public openDialog(): void {
