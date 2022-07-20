@@ -22,7 +22,24 @@ export class ProcessoService {
         },
       })
       .pipe(map((response) => this.processo = response));
-
-
   }
+
+  // private formatResponse(response: any) {
+  //   response.map((item) => ({
+  //     numProcesso: item.numero,
+  //     situacao: item.situacao,
+  //     area: item.area,
+  //     instancia: item.instancia,
+  //     tribunal: item.tribunal,
+  //     foro_cnj: item.foro_cnj,
+  //     uf: item.uf,
+  //     alteradoEm: item.alteradoEm,
+  //     partes: item.partes.map((parte) => ({
+  //       nome: parte[2],
+  //       tipo: parte[8]
+  //     }))
+  //   }))
+  // } //TODO -> Arquivo de tipagem de response
 }
+
+

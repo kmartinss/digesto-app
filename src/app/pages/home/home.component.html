@@ -50,8 +50,70 @@
       </mat-card-actions>
 
       <mat-card-footer>
-        Atualizado em {{ processoService?.processo?.alteradoEm | date: "dd/MM/yyyy hh:mm" }}
+        Atualizado em
+        {{ processoService?.processo?.alteradoEm | date: "dd/MM/yyyy hh:mm" }}
       </mat-card-footer>
     </mat-card>
   </div>
+
+  <div class="col-sm-12 tabela">
+    <h1>Partes</h1>
+    <hr />
+    <table
+      mat-table
+      [dataSource]="processoService?.processo?.partes"
+      class="mat-elevation-z8"
+    >
+      <ng-container matColumnDef="Tipo">
+        <th mat-header-cell *matHeaderCellDef>Tipo</th>
+        <td mat-cell *matCellDef="let parte">{{ parte[indexTipo] }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Nome">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let parte">{{ parte[indexNome] }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Advogado">
+        <th mat-header-cell *matHeaderCellDef>Advogado(s)</th>
+        <td mat-cell *matCellDef="let parte">Teste</td>
+      </ng-container>
+
+      <ng-container matColumnDef="OAB">
+        <th mat-header-cell *matHeaderCellDef>OAB</th>
+        <td mat-cell *matCellDef="let parte"></td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="tabelaPartes"></tr>
+      <tr mat-row *matRowDef="let row; columns: tabelaPartes"></tr>
+    </table>
+  </div>
+
+  <!-- <div class="col-sm-12 tabela">
+    <h1>Movimentações</h1>
+    <hr />
+    <table
+      mat-table
+      [dataSource]="processoService?.processo?.partes"
+      class="mat-elevation-z8"
+    >
+      <ng-container matColumnDef="Data">
+        <th mat-header-cell *matHeaderCellDef>Tipo</th>
+        <td mat-cell *matCellDef="let parte">{{ parte[indexTipo] }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Tipo">
+        <th mat-header-cell *matHeaderCellDef>Nome</th>
+        <td mat-cell *matCellDef="let parte">{{ parte[indexNome] }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Descricao">
+        <th mat-header-cell *matHeaderCellDef>Advogado(s)</th>
+        <td mat-cell *matCellDef="let parte">Teste</td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="tabelaMovimentacoes"></tr>
+      <tr mat-row *matRowDef="let row; columns: tabelaMovimentacoes"></tr>
+    </table>
+  </div> -->
 </div>

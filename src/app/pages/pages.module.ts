@@ -10,6 +10,7 @@ import { MatButtonModule } from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ProcessoDetalhesComponent } from './processo-detalhes/processo-detalhes.component';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [HomeComponent, ProcessoDetalhesComponent],
@@ -23,7 +24,8 @@ import { ProcessoDetalhesComponent } from './processo-detalhes/processo-detalhes
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTableModule
   ],
 })
 export class PagesModule {}

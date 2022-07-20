@@ -1,7 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ProcessoService } from 'src/app/data/processo/processo.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { ProcessoDetalhesComponent } from '../processo-detalhes/processo-detalhes.component';
 
 @Component({
@@ -10,11 +14,25 @@ import { ProcessoDetalhesComponent } from '../processo-detalhes/processo-detalhe
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public indexTipo = 8;
+  public indexNome = 2;
+  public indexAdvogado = 9;
+  // public indexNome = 2;
+  // public indexNome = 2;
+
+
   public formCnj: FormGroup = new FormGroup({
     cnj: new FormControl(),
   });
 
-  constructor(public processoService: ProcessoService, public dialog: MatDialog) {}
+  tabelaPartes: string[] = ['Tipo', 'Nome', 'Advogado', 'OAB'];
+  tabelaMovimentacoes: string[] = ['Data', 'Tipo', 'Descricao'];
+
+
+  constructor(
+    public processoService: ProcessoService,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.buscar();
@@ -30,14 +48,9 @@ export class HomeComponent implements OnInit {
     console.log(this.processoService.processo);
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(ProcessoDetalhesComponent, {
+  public openDialog(): void {
+    this.dialog.open(ProcessoDetalhesComponent, {
       width: '800px',
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 }
-
