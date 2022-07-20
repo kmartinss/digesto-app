@@ -8,9 +8,8 @@ describe('HomeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
-    })
-    .compileComponents();
+      declarations: [HomeComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -22,4 +21,11 @@ describe('HomeComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  // describe('buscar()', () => {
+  //   it('should return a process', () => {
+  //     expect(component.buscar()).
+  //   });
+  // });
 });
+

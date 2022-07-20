@@ -2,23 +2,23 @@
 <hr />
 
 <h5>Criado em</h5>
-<h4>{{ processoService?.processo?.criadoEm | date: "dd/MM/yyyy hh:mm" }}</h4>
+<h4>{{ processoService.processo.criadoEm | date: "dd/MM/yyyy hh:mm" }}</h4>
 
 <h5>Comarca</h5>
-<h4>{{ processoService?.processo?.comarca || 'Não informada' }}</h4>
+<h4>{{ processoService.processo.comarca || 'Não informada' }}</h4>
 
 
 <h5>Data de ditribuição</h5>
-<h4>{{ processoService?.processo?.distribuicaoData }}</h4>
+<h4>{{ processoService.processo.distribuicaoData }}</h4>
 
 <h5>Natureza</h5>
-<h4>{{ processoService?.processo?.classeNatureza || 'Não informado' }}</h4>
+<h4>{{ processoService.processo.classeNatureza || 'Não informado' }}</h4>
 
 <h5>Juiz</h5>
-<h4>{{ processoService?.processo?.juiz || 'Não informado' }}</h4>
+<h4>{{ processoService.processo.juiz || 'Não informado' }}</h4>
 
 <h5>Valor de causa</h5>
-<h4>{{ processoService?.processo?.valor | currency: "BRL" }}</h4>
+<h4>{{ processoService.processo.valor | currency: "BRL" }}</h4>
 
 
 

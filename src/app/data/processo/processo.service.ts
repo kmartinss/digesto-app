@@ -8,6 +8,7 @@ import { map, Observable } from 'rxjs';
 })
 export class ProcessoService {
   public processo: any;
+  public isValid = false;
 
   constructor(private http: HttpClient) {}
 
@@ -21,7 +22,17 @@ export class ProcessoService {
           Authorization: `Bearer ${token}`,
         },
       })
-      .pipe(map((response) => this.processo = response));
+      .pipe(
+        map((response) => {
+          if (response?.status_op) {
+            alert(response.status_op);
+            this.isValid = false;
+            return;
+          }
+          this.isValid = true;
+          this.processo = response;
+        })
+      );
   }
 
   // private formatResponse(response: any) {
@@ -41,5 +52,3 @@ export class ProcessoService {
   //   }))
   // } //TODO -> Arquivo de tipagem de response
 }
-
-

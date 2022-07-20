@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
 
   public exibirMovimentacoes: boolean = false;
 
+
   public formCnj: FormGroup = new FormGroup({
     cnj: new FormControl(null, [Validators.required]),
   });
@@ -34,7 +35,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.buscar();
+    console.log(this.processoService.isValid)
   }
 
   public buscar() {
@@ -43,6 +44,9 @@ export class HomeComponent implements OnInit {
       .subscribe(() => {
         localStorage.getItem('processo');
       });
+
+      console.log(this.processoService?.processo)
+
   }
 
   public openDialog(): void {
